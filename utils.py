@@ -36,13 +36,10 @@ def find_match(input):
 
 def query_refiner(conversation, query):
     response = client.completions.create(model="gpt-3.5-turbo-instruct",
-    # Given the following user query and summarized conversation, formulate a question that would be the most relevant to provide the user with an answer from a knowledge base.
-    # CONVERSATION LOG: {conversation}
-    #  using the summarized conversation and user query given. Consider user queries more than conversations. Sometimes user queries on new topics that are not related to the summarized conversations can come in.
-    prompt=f"""Please clarify user's query.
-Query: {query}
-Never answer, just refine the user's query.
-Refined query:""",
+                                         prompt=f"""Please clarify user's query.
+                                         Query: {query}
+                                         Never answer, just refine the user's query.
+                                         Refined query:""",
     temperature=0.1,
     max_tokens=256,
     top_p=1,
