@@ -5,7 +5,6 @@ streamlit
 pinecone-client==3.0.0
 langchain-community
 tiktoken
-localtunnel
 cohere==4.57
 streamlit_chat
 python-dotenv
