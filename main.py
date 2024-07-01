@@ -94,23 +94,18 @@ with textcontainer:
         with st.spinner("typing..."):
             #conversation_string = get_conversation_string()
             conversation_string = st.session_state['buffer_memory'].load_memory_variables({})['history']
-            st.subheader("Conversation:")
-            st.code(conversation_string)
+            
 
             refined_query = query_refiner(conversation_string, query)
-            st.subheader("Refined Query:")
-            st.write(refined_query)
+            
             context = find_match(refined_query)
-            #context = find_match(query)
-            st.subheader(f"MATCH : {len(context)}")
-            st.code(context)
+            
             results = ""
             
             if context != []:
 
                 results = co.rerank(model="rerank-multilingual-v2.0", query=query, documents=context, top_n=3)
-                st.subheader("RERANK")
-                st.code(results)
+                
                 contexts = []
                 for idx, r in enumerate(results):
                   print(f"{r}")
@@ -128,13 +123,11 @@ with textcontainer:
                   context = context[:2500-len(query)]
                 st.write(token_counter(context+query, "gpt-3.5-turbo"))
 
-                st.subheader("context 입력")
-                st.code(context)
+                
             
             try:
               if context:
                 response = conversation.predict(input=f"Context:{context}\nQuery:{query}\nAnswer:")
-                st.code(response)
                 response = "(자동화된 답변) "+llm.predict(text=f"""콘텐츠 : {response}
                 톤 앤 매너 통일을 위해 아래 요구사항에 맞춰 콘텐츠를 수정하라.
                 수정한 콘텐츠만 답하라. 어떻게 수정했는지는 말하지 않음.
