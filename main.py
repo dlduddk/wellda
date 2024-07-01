@@ -37,7 +37,7 @@ import cohere
 co = cohere.Client(os.environ['COHERE_API_KEY'])
 
 
-st.subheader("Chatbot with Pinecone, Langchain, OpenAI and Streamlit")
+st.subheader("웰다 챗봇")
 
 if 'responses' not in st.session_state:
     st.session_state['responses'] = ["무엇을 도와드릴까요?"]
