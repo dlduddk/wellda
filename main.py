@@ -40,7 +40,7 @@ co = cohere.Client(os.environ['COHERE_API_KEY'])
 st.subheader("Chatbot with Pinecone, Langchain, OpenAI and Streamlit")
 
 if 'responses' not in st.session_state:
-    st.session_state['responses'] = ["무엇을 도와드릴까요? 질문은 한 번에 한 가지만 해주세요."]
+    st.session_state['responses'] = ["무엇을 도와드릴까요?"]
 
 if 'requests' not in st.session_state:
     st.session_state['requests'] = []
@@ -146,11 +146,7 @@ with textcontainer:
                 5. 마무리 멘트 혹은 부가적인 의견을 추가하지 않음.
                 6. 문법적으로 올바른 한국어
                 수정된 콘텐츠 : """)
-              # mention = " 해당 질문은 챗봇이 답변하기 어렵습니다. 코치님께 전달드려 답변드리도록 하겠습니다."                              
-              #if mention in response:
-              #  if results != '':
-              #    results = '\n'.join(results)
-              #    response += f"\n\n관련 검색 문서 알려드리겠습니다.\n\n{results}"
+
               if context:
                 results = ''.join(context)
                 response += f"\n\n관련 검색 문서 알려드리겠습니다.\n\n{results}"
