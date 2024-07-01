@@ -13,8 +13,7 @@ from langchain.prompts import (
 
 
 
-openai_api_key = "*"
-os.environ['OPENAI_API_KEY'] = openai_api_key
+
 import streamlit as st
 from streamlit_chat import message
 from utils import *
@@ -35,8 +34,7 @@ load_dotenv()
 
 
 import cohere
-api_key= '*'
-co = cohere.Client(api_key)
+co = cohere.Client(os.environ['COHERE_API_KEY '])
 
 
 st.subheader("Chatbot with Pinecone, Langchain, OpenAI and Streamlit")
