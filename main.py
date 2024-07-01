@@ -34,7 +34,7 @@ load_dotenv()
 
 
 import cohere
-co = cohere.Client(os.environ['COHERE_API_KEY '])
+co = cohere.Client(os.environ['COHERE_API_KEY'])
 
 
 st.subheader("Chatbot with Pinecone, Langchain, OpenAI and Streamlit")
