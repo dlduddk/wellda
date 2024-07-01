@@ -15,7 +15,7 @@ load_dotenv()
 client = OpenAI()
 
 model = SentenceTransformer("upskyy/kf-deberta-multitask")
-pc1 = Pinecone(api_key=pinecone_api)
+pc1 = Pinecone(api_key=os.environ['pinecone_api'])
 index1 = pc1.Index(host='https://wellda-1apu0lr.svc.aped-4627-b74a.pinecone.io') #https://dw-1apu0lr.svc.gcp-starter.pinecone.io / https://dw-6netppr.svc.gcp-starter.pinecone.io
 def find_match(input):
     
