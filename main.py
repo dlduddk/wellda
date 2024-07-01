@@ -45,7 +45,7 @@ if 'responses' not in st.session_state:
 if 'requests' not in st.session_state:
     st.session_state['requests'] = []
 
-llm = ChatOpenAI(model_name="gpt-4o", openai_api_key = openai_api_key,temperature=0.1,
+llm = ChatOpenAI(model_name="gpt-4o", openai_api_key = os.environ['OPENAI_API_KEY '],temperature=0.1,
   model_kwargs={
     "frequency_penalty": 1.0,
   })
