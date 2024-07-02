@@ -8,6 +8,7 @@ from langchain.retrievers import ContextualCompressionRetriever
 from langchain.retrievers.document_compressors import CohereRerank
 
 
+
 from transformers import AutoModel, AutoTokenizer
 
 load_dotenv()
@@ -26,7 +27,7 @@ def find_match(input):
     result1 = index1.query(vector=input_em, top_k=30, include_values=True,include_metadata=True,)
     r=[]
     result1.matches.sort(key=lambda x: x.score, reverse=True)
-    
+    print(result1)
     for idx, res in enumerate(result1.matches):
         if res.score >= 0.3:
           r.append(result1['matches'][idx]['metadata']['page_content'])
