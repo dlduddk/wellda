@@ -43,7 +43,7 @@ if csv_file is not None:
             st.success('벡터DB upsert 성공')
     except Exception as e:    # 모든 예외의 에러 메시지를 출력할 때는 Exception을 사용
         print('예외가 발생했습니다.', e)
-        st.success('벡터DB upsert 실패')
+        st.error('벡터DB upsert 실패')
     
     # Create the index if it doesn't existS
 #    if index_name not in pc.list_indexes():

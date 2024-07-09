@@ -48,7 +48,7 @@ class TextProcessor:
         data = csv.reader(f, delimiter=',')
         header = next(data)
         for row in data:
-            content = "키워드 : " + row[2].strip().replace('#', '\n')
+            content = "키워드 : " + row[2]
             content += "\n\n답변 : " + row[3]
             content = self.clean_str(content)
             metadata = {
