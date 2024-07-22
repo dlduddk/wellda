@@ -14,7 +14,7 @@ from transformers import AutoModel, AutoTokenizer
 
 load_dotenv()
 
-client = OpenAI(api_key="sk-proj-qxd4kxEWuSUu63VJku8cT3BlbkFJBbEhfGvVbYsNnbQWdBqL")
+client = OpenAI()
     
 model = SentenceTransformer("upskyy/kf-deberta-multitask")
 pc1 = Pinecone(api_key=os.environ['pinecone_api'])
