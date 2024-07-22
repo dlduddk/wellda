@@ -3,9 +3,7 @@ import os
 from utils import *
 from dotenv import load_dotenv
 load_dotenv()
-os.environ['OPENAI_API_KEY'] = "sk-proj-qxd4kxEWuSUu63VJku8cT3BlbkFJBbEhfGvVbYsNnbQWdBqL"
-os.environ['COHERE_API_KEY'] = "unoKJ0fmAD5yqqF5xYCWwcO4a8CFXPxwAXJOXm9N"
-os.environ['pinecone_api'] = "24c94c01-5774-42cf-a92f-bf969b18d5a7"
+
 class Document_:
     def __init__(self):
         self.co = cohere.Client(os.environ['COHERE_API_KEY'])
