@@ -10,7 +10,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-
 class Chatbot_:
     def __init__(self):
         self.llm = ChatOpenAI(model_name="gpt-4o", openai_api_key=os.environ['OPENAI_API_KEY'], temperature=0.1,
@@ -30,7 +29,7 @@ class Chatbot_:
                         - CONTEXT가 비어있다면, 다음과 같이 답하라 : {self.mention}
                         -  사용자의 질문에 CONTEXT만 이용하여 답변을 할 수 있는지 판단하라.
                             - 사용자의 개인 건강 정보에 대한 질문에 답변을 제공하지 마라.
-                              개인 건강 정보에 대한 질문(예시: 사용자의 혈당 변동성의 원인에 대한 질문, 아픈 이유에 대한 질문)에는 다음과 같이 답변 : {self.mention}
+                              개인 건강 정보에 대한 질문(예시: 혈압 상승,하락의 이유에 대한 질문, 소화가 잘 안되는 이유에 대한 질문)에는 다음과 같이 답변 : {self.mention}
                             - CONTEXT만으로 답변을 생성할 수 없다면 다음과 같이 답변 : {self.mention}
                             - 질문에 대한 답을 모르겠다면 다음과 같이 답변 : {self.mention}
                             - CONTEXT의 키워드와 가이드만으로 답변을 할 수 있다면, 문법적으로 올바른 한국어 문장으로 답변
