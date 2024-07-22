@@ -9,6 +9,8 @@ from langchain.prompts import (
 import os
 from dotenv import load_dotenv
 load_dotenv()
+
+
 class Chatbot_:
     def __init__(self):
         self.llm = ChatOpenAI(model_name="gpt-4o", openai_api_key=os.environ['OPENAI_API_KEY'], temperature=0.1,
@@ -26,11 +28,13 @@ class Chatbot_:
                         - CoT 방식을 이용하여 질문을 이해하라.
                         - ToT 방식을 사용하여 답하라.
                         - CONTEXT가 비어있다면, 다음과 같이 답하라 : {self.mention}
-                        - 사용자의 질문에 CONTEXT만 이용하여 답변을 할 수 있는지 판단하라.
-                            - CONTEXT만으로 답변을 생성할 수 없다면 다음과 같이 답변 : {self.mention}.
-                            - 질문에 대한 답을 모르겠다면 다음과 같이 답변 : {self.mention}.
-                            - CONTEXT의 키워드와 가이드만으로 답변을 할 수 있다면, 문법적으로 올바른 한국어 문장으로 답변.
-                            - 답변을 할 때 코치 혹은 전문가와 상담하라는 말을 하지 않음
+                        -  사용자의 질문에 CONTEXT만 이용하여 답변을 할 수 있는지 판단하라.
+                            - 사용자의 개인 건강 정보에 대한 질문에 답변을 제공하지 마라.
+                              개인 건강 정보에 대한 질문(예시: 사용자의 혈당 변동성의 원인에 대한 질문, 아픈 이유에 대한 질문)에는 다음과 같이 답변 : {self.mention}
+                            - CONTEXT만으로 답변을 생성할 수 없다면 다음과 같이 답변 : {self.mention}
+                            - 질문에 대한 답을 모르겠다면 다음과 같이 답변 : {self.mention}
+                            - CONTEXT의 키워드와 가이드만으로 답변을 할 수 있다면, 문법적으로 올바른 한국어 문장으로 답변
+                            - 답변을 할 때 코치 혹은 전문가와 상담하라는 말을 하지 않음.
         """)
 
         human_msg_template = HumanMessagePromptTemplate.from_template(template="{input}")

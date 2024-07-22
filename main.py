@@ -16,7 +16,6 @@ import time
 import pandas as pd
 import re
 st.set_page_config(layout="wide")
-
 st.sidebar.success("Select a menu above.")
 
 def encoding_getter(encoding_type: str):
