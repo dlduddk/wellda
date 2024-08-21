@@ -13,7 +13,8 @@ class Document_:
     
     def find_match_(self, query):
         return find_match(query)
-    
+
+    # 사용x
     def rerank_contexts(self,query, context, n):
         if len(context)>0:
             results = self.co.rerank(model="rerank-multilingual-v2.0", query=query, documents=context, top_n=n)
