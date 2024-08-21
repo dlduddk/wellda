@@ -38,14 +38,16 @@ def find_match(input):
     sparse_vec = generate_sparse_vectors(input)
 
     dense_vec, sparse_vec = hybrid_scale(
-      input_em, sparse_vec, alpha=0.5
+      input_em, sparse_vec, alpha=0.8
    )
-    result1 = index1.query(vector=dense_vec,sparse_vector= sparse_vec, top_k=30, include_values=True,include_metadata=True,)
+    result1 = index1.query(vector=dense_vec, sparse_vector=sparse_vec, top_k=10, include_values=True, include_metadata=True,namespace='keyword')
     r=[]
     result1.matches.sort(key=lambda x: x.score, reverse=True)
-    print(result1)
+    #print(result1)
     for idx, res in enumerate(result1.matches):
-        if res.score >= 0.3:
+        if res.score >= 115:
+          #print(res.score, result1['matches'][idx]['metadata']['page_content'])
+          #r.append('번호 : ' + result1['matches'][idx]['metadata']['번호'] + ' ' + result1['matches'][idx]['metadata']['page_content'])
           r.append(result1['matches'][idx]['metadata']['page_content'])
 
     return r
