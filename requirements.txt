@@ -8,3 +8,4 @@ tiktoken
 cohere==4.57
 streamlit_chat
 python-dotenv
+langchain_openai 
